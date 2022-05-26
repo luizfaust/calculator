@@ -1,51 +1,59 @@
-var v1 = '';
-var v2 = '';
+var vd = "";
+neg = false;
 var m = 0;
 function getValue(v){
-    v1 += v;
+    vd += v;
     document.getElementById("Memoria").innerText += v;
-    console.log(v1);
+    console.log(vd);
 }
 
 function resultado(){
-    if( v1 != ''){
-        m = parseInt(v1) + parseInt(v2);
-        document.getElementById("Resultado").innerText = m;
-        document.getElementById("Memoria").innerText = '';
-        v2 = m;
-        v1 = '';
+    if(vd == ""){
+        m += 0;
+    } else {
+        if(neg){
+            m -= parseInt(vd);
+        } else {
+            m += parseInt(vd);
+        }
     }
+    document.getElementById("Resultado").innerText = m;
+    document.getElementById("Memoria").innerText = '';
+    vd = '';
+    neg = false;
+    m = 0;
 }
 
 function somar(){
-    if( v1 != '' ){
-        if( v2 == 0 ){
-            v2 = v1;
-            v1 = '';
-            document.getElementById("Memoria").innerText += ' + ';
-        } else {
-            m += v1;
-            document.getElementById("Memoria").innerText += ' + ';
-        }
+    if(vd == ""){
+        vd = 0;
     }
+    m += parseInt(vd);
+    console.log(m);
+    document.getElementById("Memoria").innerText += ' + ';
+    vd = "";
+    nef = false;
 }
 
 function subtrair(){
-    if( v1 != '' ){
-        if( v2 == 0 ){
-            v2 = v1;
-            v1 = '';
-            document.getElementById("Memoria").innerText += ' - ';
-        } else {
-            resultado();
-            document.getElementById("Memoria").innerText += ' - ';
-        }
+    if(vd == ""){
+        vd = 0;
     }
+    if(neg){
+        m -= parseInt(vd);
+    } else {
+        m += parseInt(vd);
+    }
+    console.log(m);
+    document.getElementById("Memoria").innerText += ' - ';
+    vd = "";
+    neg = true;
 }
 
 function limpar(){
-    v1 = '';
-    v2 = '';
+    vd = "";
+    neg = false;
+    m = 0;
     document.getElementById("Memoria").innerText = '';
     document.getElementById("Resultado").innerText = '';
 }
