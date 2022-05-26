@@ -18,12 +18,14 @@ body{
     background-color: grey;
     border: 1px solid black;
     padding: 25px;
+    border-radius: 25px;
 }
 
 .visor{
     box-sizing: border-box;
     background-color: white;
     width: 100%;
+    border-radius: 15px;
 }
 
 #Memoria, #Resultado {
@@ -54,4 +56,5 @@ body{
 
 .teclado p{
     background-color: lightgray;
+    border-radius: 15px;
 }
